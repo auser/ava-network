@@ -1,0 +1,28 @@
+{
+  "allocations": [
+    {
+      "ethAddr": "0xb3d82b1367d362de99ab59a658165aff520cbd4d",
+      "avaxAddr": "X-local18jma8ppw3nhx5r4ap8clazz0dps7rv5u00z96u",
+      "initialAmount": 300000000000000000,
+      "unlockSchedule": [
+        {
+          "amount": 10000000000000000,
+          "locktime": 1633824000
+        }
+      ]
+    }
+  ],
+  "startTime": 1641772292,
+  "initialStakers": [
+    {
+      "nodeID": "NodeID-7Xhw2mDxuDS44j42TCB6U5579esbSt3Lg",
+      "rewardAddress": "X-local18jma8ppw3nhx5r4ap8clazz0dps7rv5u00z96u",
+      "delegationFee": 5000000
+    }
+  ],
+  "networkID": 4200,
+  "initialStakeDuration": 2592000,
+  "initialStakeDurationOffset": 5400,
+  "initialStakedFunds": ["X-local18jma8ppw3nhx5r4ap8clazz0dps7rv5u00z96u"],
+  "cChainGenesis": "{\n  \"config\": {\n    \"chainId\": 43112,\n    \"homesteadBlock\": 0,\n    \"daoForkBlock\": 0,\n    \"daoForkSupport\": true,\n    \"eip150Block\": 0,\n    \"eip150Hash\": \"0x2086799aeebeae135c246c65021c82b4e15a2c451340993aacfd2751886514f0\",\n    \"eip155Block\": 0,\n    \"eip158Block\": 0,\n    \"byzantiumBlock\": 0,\n    \"constantinopleBlock\": 0,\n    \"petersburgBlock\": 0,\n    \"istanbulBlock\": 0,\n    \"muirGlacierBlock\": 0,\n    \"apricotPhase1BlockTimestamp\": 0,\n    \"apricotPhase2BlockTimestamp\": 0\n  },\n  \"nonce\": \"0x0\",\n  \"timestamp\": \"0x0\",\n  \"extraData\": \"0x00\",\n  \"gasLimit\": \"0x5f5e100\",\n  \"difficulty\": \"0x0\",\n  \"mixHash\": \"0x0000000000000000000000000000000000000000000000000000000000000000\",\n  \"coinbase\": \"0x0000000000000000000000000000000000000000\",\n  \"alloc\": {\n    \"8db97C7cEcE249c2b98bDC0226Cc4C2A57BF52FC\": {\n      \"balance\": \"0x295BE96E64066972000000\"\n    }\n  },\n  \"number\": \"0x0\",\n  \"gasUsed\": \"0x0\",\n  \"parentHash\": \"0x0000000000000000000000000000000000000000000000000000000000000000\"\n}\n"
+}

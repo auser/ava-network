@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "lib": ["es6"],
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "useUnknownInCatchVariables": true,
+    "allowJs": true,
+    "strict": false,
+    "incremental": true,
+    "module": "commonjs",
+    "target": "es5",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "build",
+    "baseUrl": "src",
+    "typeRoots": ["node_modules/@types", "src/global.d.ts"],
+    "paths": {
+      "@lib/*": ["lib/*"]
+    }
+  },
+  "include": ["src/**/*", "src/global.d.ts"],
+  "exclude": ["node_modules", "build"]
+}
