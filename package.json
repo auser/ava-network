@@ -1,10 +1,19 @@
 {
   "name": "ava",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "build/cli.js",
+  "bin": {
+    "ava": "build/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "dev": "tsc -p . -w"
+  },
   "license": "MIT",
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/node": "^17.0.21",
+    "@types/secure-random-password": "^0.2.1",
     "@types/yargs": "^17.0.9",
     "debug": "^4.3.3",
     "dotenv": "^16.0.0",
@@ -12,5 +21,9 @@
     "ts-node": "^10.7.0",
     "typescript": "^4.6.2",
     "yargs": "^17.3.1"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "secure-random-password": "^0.2.3"
   }
 }

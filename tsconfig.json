@@ -1,24 +1,28 @@
 {
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "build", "**/*.spec.ts", "**/*.test.ts"],
+  "compileOnSave": true,
   "compilerOptions": {
-    "lib": ["es6"],
-    "esModuleInterop": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "useUnknownInCatchVariables": true,
-    "allowJs": true,
-    "strict": false,
-    "incremental": true,
-    "module": "commonjs",
-    "target": "es5",
-    "moduleResolution": "node",
-    "sourceMap": true,
+    "target": "es5", // Compatible with older browsers
+    "module": "commonjs", // Compatible with both Node.js and browser
+    "moduleResolution": "node", // Tell tsc to look in node_modules for modules
+    "sourceMap": false, // Creates *.js.map files
+    "inlineSourceMap": true,
+    "strict": true, // Strict types, eg. prohibits `var x=0; x=null`
+    "alwaysStrict": true, // Enable JavaScript's "use strict" mode
+    "types": ["node"],
     "outDir": "build",
+    "sourceRoot": "./src",
+    "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "typeRoots": ["./node_modules/@types", "./global.d.ts"],
+    "jsx": "react",
+    "rootDir": "./src",
     "baseUrl": "src",
-    "typeRoots": ["node_modules/@types", "src/global.d.ts"],
     "paths": {
+      "@cli": ["cli.tsx"],
       "@lib/*": ["lib/*"]
     }
-  },
-  "include": ["src/**/*", "src/global.d.ts"],
-  "exclude": ["node_modules", "build"]
+  }
 }
