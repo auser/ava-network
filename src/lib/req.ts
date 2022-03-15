@@ -29,9 +29,7 @@ export const req = async (
   params: IParams = defaultParams,
   options: IReqOptions = defaultOptions
 ) => {
-  const defaultHeaders = {};
-
-  const { host, port, protocol, token, debug, alias } = options;
+  const { host, port, protocol, debug } = options;
   const baseURL = `${protocol}://${host}:${port}`;
 
   const data = { jsonrpc: "2.0", id: 1, method, params };

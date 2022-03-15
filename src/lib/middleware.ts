@@ -1,6 +1,3 @@
-const { promisify } = require("util"); // since node 8.0.0
-const readFile = promisify(require("fs").readFile);
-
 export const normalizeRequestOptions = (argv: any) => {
   const requestOptions = {
     host: argv.host || "localhost",
