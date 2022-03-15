@@ -44,6 +44,21 @@ Now you can use the CLI. To see all the options available, use the `--help` flag
 ./build/cli.js --help
 ```
 
+To issue any commands that require a token (if `api-auth-required` is enabled), you must first fetch a token. A token can be fetched using the cli:
+
+```bash
+export AVA_TOKEN=`./build/cli.js auth newToken --password "Please-change-me-to-1234\!" --quiet`
+```
+
+If you'd prefer not to set an environment variable, it can be passed in using the `--token` flag:
+
+```bash
+./build/cli.js auth newToken --password "Please-change-me-to-1234\!"
+"JWT_TOKEN_ISSUED_BY_AVALANCHE"
+## Use the token
+./build/cli.js user
+```
+
 ## How it works
 
 While developing locally a docker instance is launched and `axios` issues local commands (in lieu of the `curl` interface) to the instance. All of these options can be configured using the cli, but it all defaults to a local instance.
