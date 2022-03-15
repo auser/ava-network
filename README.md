@@ -59,6 +59,10 @@ If you'd prefer not to set an environment variable, it can be passed in using th
 ./dist/src/cli.js user
 ```
 
+## Justfile
+
+This project also uses [justfile](https://github.com/casey/just) as a convenience. You can use the [./justfile](./justfile) commands just like the `yarn` or `npm` commands.
+
 ## How it works
 
 While developing locally a docker instance is launched and `axios` issues local commands (in lieu of the `curl` interface) to the instance. All of these options can be configured using the cli, but it all defaults to a local instance.
