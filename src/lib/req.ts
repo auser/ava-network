@@ -1,6 +1,6 @@
 import axios from "axios";
 
-interface IParams {}
+type IParams = { [key: string]: any };
 
 interface IReqOptions {
   host: string;
@@ -9,6 +9,7 @@ interface IReqOptions {
     [key: string]: any;
   };
   protocol: string;
+  token?: string;
 }
 
 const defaultParams = {};
@@ -17,6 +18,7 @@ const defaultOptions = {
   port: 9650,
   headers: {},
   protocol: "http",
+  token: "JWT",
 };
 
 export const req = async (
@@ -27,17 +29,34 @@ export const req = async (
 ) => {
   const defaultHeaders = {};
 
-  const { host, port, protocol } = options;
+  const { host, port, protocol, token, debug, alias } = options;
   const baseURL = `${protocol}://${host}:${port}`;
 
   const data = { jsonrpc: "2.0", id: 1, method, params };
-  const headers = {
+  const headers: any = {
     "Content-Type": "application/json",
   };
 
+  if (options.token && options.token !== "") {
+    const token = options.token;
+    headers["Authorization"] = `Bearer ${token}`;
+  }
+
+  const url = `${baseURL}${rawPath}`;
+
+  if (debug) {
+    console.log(
+      `Making POST request to:
+${url}
+${JSON.stringify(headers, null, 2)}
+${JSON.stringify(data, null, 2)}
+`
+    );
+  }
+
   const axiosOptions: any = {
-    method,
-    url: `${baseURL}${rawPath}`,
+    method: "POST",
+    url,
     responseType: "json",
     baseURL,
     headers,
@@ -51,5 +70,9 @@ export const req = async (
   //   axiosOptions["body"] = params.body;
   // }
   const resp = await axios(axiosOptions);
-  return resp;
+  if (resp.data) {
+    return resp.data.result ? resp.data.result : resp.data;
+  } else {
+    return resp;
+  }
 };

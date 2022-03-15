@@ -1,10 +1,12 @@
 #!/usr/bin/env ts-node
 import yargs, { Arguments } from "yargs";
+import { hideBin } from "yargs/helpers";
 import fs from "fs";
 import path from "path";
 const { version } = require("../package.json");
+import { normalizeRequestOptions } from "./lib/middleware";
 
-yargs
+yargs(hideBin(process.argv))
   .parserConfiguration({
     "short-option-groups": true,
     "camel-case-expansion": false,
@@ -16,15 +18,10 @@ yargs
     "strip-dashed": false,
   })
   .options({
-    apiUrl: {
-      alias: "h",
-      normalize: true,
-      description: `API url`,
-    },
-    namespace: {
+    alias: {
       alias: "n",
-      description: `Namespace`,
-      default: "ava",
+      description: `Alias`,
+      default: "X",
     },
     networkId: {
       alias: "i",
@@ -45,11 +42,17 @@ yargs
     },
     token: {
       description: "AUTH token",
-      default:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDIxMDI2NjYsImp0aSI6ImtlSzM3aW5SaW5VRldFTG03V3gxeHhRLTQwdz0iLCJlbmRwb2ludHMiOlsiKiJdfQ.dYwxkpGkypG7BPQfCQcMgg-3cGWu3OXzdd8qV8VUu0E",
+      default: "",
+    },
+    debug: {
+      description: "Verbose output",
+      type: "boolean",
+      count: true,
+      default: false,
     },
   })
   .commandDir("./cmd")
+  .env("AVA")
   .usage("Usage: <cmd> [args]")
   .showHelpOnFail(true)
   .wrap(Math.min(yargs.terminalWidth(), 160))
@@ -59,5 +62,6 @@ yargs
   .alias("version", "v")
   .hide("help")
   .hide("version")
+  .middleware(normalizeRequestOptions)
   .demandCommand()
   .help().argv;
