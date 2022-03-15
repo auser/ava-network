@@ -71,10 +71,16 @@ ${JSON.stringify(data, null, 2)}
   // if (params.body) {
   //   axiosOptions["body"] = params.body;
   // }
-  const resp = await axios(axiosOptions);
-  if (resp.data) {
-    return resp.data.result ? resp.data.result : resp.data;
-  } else {
-    return resp;
+  try {
+    const resp = await axios(axiosOptions);
+    if (resp.data) {
+      return resp.data.result ? resp.data.result : resp.data;
+    } else {
+      return resp;
+    }
+  } catch (e: any) {
+    console.log(`An error occurred in request`);
+    console.log(e.response.data);
+    return e.response;
   }
 };

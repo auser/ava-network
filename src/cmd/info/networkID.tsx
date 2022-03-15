@@ -20,7 +20,5 @@ export async function handler(args: any) {
 
   if (data.networkID) {
     console.log(`Network ID: ${data.networkID}`);
-  } else {
-    console.log(`An error occurred`);
   }
 }
