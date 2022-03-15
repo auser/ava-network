@@ -15,7 +15,7 @@ export async function handler(args: any) {
       password: args.password,
       endpoints: args.endpoints,
     },
-    { ...args.requestOptions }
+    args.requestOptions
   );
   console.log("resp ->", data);
 }

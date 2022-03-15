@@ -21,7 +21,7 @@ yargs(hideBin(process.argv))
     alias: {
       alias: "n",
       description: `Alias`,
-      default: "X",
+      default: "",
     },
     networkId: {
       alias: "i",

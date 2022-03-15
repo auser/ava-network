@@ -10,6 +10,8 @@ interface IReqOptions {
   };
   protocol: string;
   token?: string;
+  alias?: string;
+  debug?: boolean;
 }
 
 const defaultParams = {};
