@@ -40,9 +40,16 @@ export async function handler(args: any) {
   const username = args.username;
   const password = args.password || generatePassword();
 
-  const resp = await req(`/ext/keystore`, "keystore.createUser", {
-    username,
-    password,
-  });
-  console.log("resp ->", resp);
+  const opts = { username, password };
+  const data = await req(
+    `/ext/keystore`,
+    "keystore.createUser",
+    opts,
+    args.requestOptions
+  );
+  if (data.success) {
+    console.log(`Users ${username} successfully added`);
+  } else {
+    console.log(`There was an error`);
+  }
 }
