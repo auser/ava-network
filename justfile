@@ -1,3 +1,5 @@
+set dotenv-load
+
 compile +ARGS='': clean-dist
   yarn tsc -p . {{ARGS}}
 
