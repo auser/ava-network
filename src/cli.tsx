@@ -3,7 +3,7 @@ import yargs, { Arguments } from "yargs";
 import { hideBin } from "yargs/helpers";
 import fs from "fs";
 import path from "path";
-const { version } = require("../package.json");
+import { VERSION } from "./lib/constants";
 import { normalizeRequestOptions } from "./lib/middleware";
 
 yargs(hideBin(process.argv))
@@ -58,7 +58,7 @@ yargs(hideBin(process.argv))
   .wrap(Math.min(yargs.terminalWidth(), 160))
   .help("help")
   .alias("help", "h")
-  .version(version)
+  .version(VERSION)
   .alias("version", "v")
   .hide("help")
   .hide("version")
