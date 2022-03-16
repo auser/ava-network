@@ -14,6 +14,7 @@ export const builder = (yargs: Argv) =>
     },
     threshold: {
       description: "threshold of number of signatures",
+      alias: "t",
       type: "number",
       required: true,
     },
@@ -29,11 +30,13 @@ export const builder = (yargs: Argv) =>
     username: {
       description: "The user that pays the transaction fee",
       type: "string",
+      alias: "u",
       required: true,
     },
     password: {
       description: "The username's password",
       type: "string",
+      alias: "p",
       required: true,
     },
   });
@@ -61,5 +64,7 @@ export async function handler(args: any) {
   );
   if (data.address) {
     console.log(`Address: ${data.address}`);
+  } else {
+    console.log(data);
   }
 }

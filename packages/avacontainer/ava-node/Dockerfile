@@ -5,7 +5,7 @@ RUN apt-get update -yq && \
   mkdir /etc/ava
 
 COPY ./avalanche-config.json /etc/ava/ava.json
-COPY ./genesis.json /etc/ava/genesis.json
+# COPY ./genesis.json /etc/ava/genesis.json
 COPY ./keys/staking.crt /etc/ava/staking.crt
 COPY ./keys/staking.key /etc/ava/staking.key
 COPY ./chains /etc/ava/chains/

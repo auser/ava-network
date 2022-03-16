@@ -1,4 +1,5 @@
 import { Argv } from "yargs";
+import chalk from "chalk";
 import { req } from "../../lib/req";
 
 export const command = "createAddress [args]";
@@ -31,8 +32,8 @@ export async function handler(args: any) {
     args.requestOptions
   );
   if (data.address) {
-    console.log(`Address: ${data.address}`);
+    console.log(`Address:\n${chalk.blue(data.address)}`);
   } else {
-    console.log(`Error occured`, data.data);
+    console.log(`Error occured`, data);
   }
 }

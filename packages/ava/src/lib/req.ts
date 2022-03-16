@@ -82,6 +82,8 @@ ${JSON.stringify(data, null, 2)}
       console.log(`Axios error`, e.code, e.response.data);
       return e.response.data;
     } else {
+      console.log(e);
+
       return e;
     }
   }

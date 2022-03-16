@@ -1,4 +1,5 @@
 import { Argv } from "yargs";
+import chalk from "chalk";
 import { req } from "../../lib/req";
 
 export const command = "isBootstrapped [args]";
@@ -27,6 +28,7 @@ export async function handler(args: any) {
   );
 
   if (data.isBootstrapped === true || data.isBootstrapped === false) {
-    console.log(`Bootstrapped status: ${data.isBootstrapped}`);
+    const color = data.isBootstrapped ? chalk.blueBright : chalk.redBright;
+    console.log(`Bootstrapped status: ${color(data.isBootstrapped)}`);
   }
 }

@@ -1,6 +1,7 @@
 import { Argv } from "yargs";
-import { req } from "../../lib/req";
+import chalk from "chalk";
 import * as password from "secure-random-password";
+import { req } from "../../lib/req";
 
 export const command = "create [args]";
 
@@ -49,7 +50,14 @@ export async function handler(args: any) {
   );
   if (data.success) {
     console.log(`Users ${username} successfully added`);
+    if (!args.password) {
+      console.log(
+        `Password generated on your behalf is: ${chalk.blue(password)}`
+      );
+    }
   } else {
+    console.log(data);
+
     console.log(`There was an error`);
   }
 }
