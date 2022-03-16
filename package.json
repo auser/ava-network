@@ -6,14 +6,17 @@
   "workspaces": {
     "packages": [
       "packages/*"
-    ]
+    ],
+    "installConfig": {
+      "hoistingLimits": "dependencies"
+    }
   },
   "scripts": {
     "test": "yarn workspaces run test",
     "every": "yarn workspaces foreach run",
     "ava": "yarn workspace @auser/ava",
-    "container": "yarn workspace @auser/container",
-    "kube": "yarn workspace @auser/avakube"
+    "avacontainer": "yarn workspace @auser/container",
+    "avakube": "yarn workspace @auser/avakube"
   },
   "license": "MIT",
   "packageManager": "yarn@3.2.0",

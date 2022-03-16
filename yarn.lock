@@ -35,7 +35,8 @@ __metadata:
     "@jkcfg/kubernetes": ^0.6.2
     "@jkcfg/std": ^0.4.0
     "@types/dotenv": ^8.2.0
-    "@types/node": ^17.0.21
+    dotenv: ^16.0.0
+    jk: ^0.0.1
     typescript: ^4.6.2
   languageName: unknown
   linkType: soft
@@ -43,9 +44,6 @@ __metadata:
 "@auser/container@workspace:packages/avacontainer":
   version: 0.0.0-use.local
   resolution: "@auser/container@workspace:packages/avacontainer"
-  dependencies:
-    "@types/dotenv": ^8.2.0
-    dotenv: ^16.0.0
   languageName: unknown
   linkType: soft
 
@@ -1057,6 +1055,13 @@ __metadata:
   version: 0.1.2
   resolution: "isstream@npm:0.1.2"
   checksum: 1eb2fe63a729f7bdd8a559ab552c69055f4f48eb5c2f03724430587c6f450783c8f1cd936c1c952d0a927925180fcc892ebd5b174236cf1065d4bd5bdb37e963
+  languageName: node
+  linkType: hard
+
+"jk@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "jk@npm:0.0.1"
+  checksum: 0053f33b66b7d5d2ebb92200bb2982aadbc19e2ac574cd56530f4907b652d8015e318d28f9c76cab0ded98d001f68f0771cee2ef63ebbb8355ac809dd1d4d7e0
   languageName: node
   linkType: hard
 

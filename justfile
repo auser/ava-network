@@ -13,12 +13,12 @@ ava-dev:
 
 container-build:
   #!/bin/bash -ex
-  cd ./packages/container && just docker-compose-build
+  cd ./packages/avacontainer && just docker-compose-build
 
 container-up:
   #!/bin/bash -ex
-  cd ./packages/container && just docker-compose-up
+  cd ./packages/avacontainer && just docker-compose-up
 
 kube-build:
   #!/bin/bash -ex
-  cd ./packages/kube && just build
+  cd ./packages/avakube && just build

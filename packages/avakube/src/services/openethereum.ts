@@ -34,7 +34,7 @@ export async function OpenEthereum() {
 
   const fileConfigMap = await ConfigMap("ethereum-config-map", {
     name: "ethereum-config-map",
-    files: ["kube/templates/openethereum/config.toml"],
+    files: ["openethereum/config.toml"],
   });
 
   return finalize([fileConfigMap], {

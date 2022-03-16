@@ -1,9 +1,12 @@
 {
   "extends": "../../tsconfig",
+  "exclude": ["dist", "node_modules"],
   "include": ["src/**/*"],
   "compilerOptions": {
     "module": "es6",
     "typeRoots": ["./node_modules/@types", "./src/types.d.ts"],
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "isolatedModules": true
   }
 }
