@@ -9,8 +9,7 @@ export const builder = (yargs: Argv) =>
     .commandDir("./info")
     .usage("Usage: info <cmd> [args")
     .help("help")
-    .alias("help", "h")
-    .showHelpOnFail(true)
+    .alias("h", "help")
     .demandCommand()
     .help();
 

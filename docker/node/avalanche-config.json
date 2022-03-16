@@ -7,7 +7,6 @@
   "api-info-enabled": true,
   "http-host": "",
   "network-id": "network-4200",
-  "bootstrap-beacon-connection-timeout": "5m",
   "bootstrap-retry-enabled": true,
   "network-allow-private-ips": true,
   "db-dir": "/usr/share/.avalanchego/db",

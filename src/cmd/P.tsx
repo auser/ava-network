@@ -10,7 +10,6 @@ export const builder = (yargs: Argv) =>
     .usage("Usage: P <cmd> [args")
     .help("help")
     .alias("help", "h")
-    .showHelpOnFail(true)
     .demandCommand()
     .help();
 

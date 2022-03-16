@@ -59,5 +59,7 @@ export async function handler(args: any) {
     requestOptions,
     args.requestOptions
   );
-  console.log("resp ->", data);
+  if (data.address) {
+    console.log(`Address: ${data.address}`);
+  }
 }
