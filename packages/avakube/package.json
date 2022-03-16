@@ -1,0 +1,22 @@
+{
+  "name": "@auser/avakube",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf generated/ dist/",
+    "gen": "jk generate -v -i . -o generated dist/index.js",
+    "compile": "tsc -p .",
+    "build": "npm run clean && npm run compile && npm run gen"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^17.0.21",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "@dpu/jkcfg-k8s": "^0.5.4",
+    "@jkcfg/kubernetes": "^0.6.2",
+    "@jkcfg/std": "^0.4.0"
+  }
+}

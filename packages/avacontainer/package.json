@@ -1,0 +1,16 @@
+{
+  "name": "@auser/container",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "docker-compose": "docker-compose -f ./docker-compose.yml",
+    "build": "npm run docker-compose build",
+    "start": "npm run docker-compose up"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0"
+  }
+}

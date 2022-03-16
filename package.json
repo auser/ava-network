@@ -1,33 +1,26 @@
 {
   "name": "ava",
   "version": "1.0.0",
-  "type": "commonjs",
-  "main": "./src/cli.js",
-  "bin": {
-    "ava": "bin/cli"
+  "private": true,
+  "bin": "./packages/ava/bin/cli",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
   },
   "scripts": {
-    "build": "tsc -p .",
-    "dev": "tsc -p . -w"
+    "test": "yarn workspaces run test",
+    "ava": "yarn workspace @auser/ava",
+    "container": "yarn workspace @auser/container",
+    "kube": "yarn workspace @auser/avakube"
   },
   "license": "MIT",
+  "packageManager": "yarn@3.2.0",
   "devDependencies": {
-    "@types/axios": "^0.14.0",
-    "@types/node": "^17.0.21",
-    "@types/secure-random-password": "^0.2.1",
-    "@types/yargs": "^17.0.9",
-    "debug": "^4.3.3",
-    "dotenv": "^16.0.0",
-    "selfsigned": "^2.0.0",
-    "ts-node": "^10.7.0",
-    "typescript": "^4.6.2",
-    "yargs": "^17.3.1"
+    "@types/dotenv": "^8.2.0",
+    "typescript": "^4.6.2"
   },
   "dependencies": {
-    "@dpu/jkcfg-k8s": "^0.5.4",
-    "@jkcfg/kubernetes": "^0.6.2",
-    "@jkcfg/std": "^0.4.0",
-    "axios": "^0.26.1",
-    "secure-random-password": "^0.2.3"
+    "dotenv": "^16.0.0"
   }
 }

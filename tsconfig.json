@@ -1,33 +1,35 @@
 {
-  "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts"],
-  "compileOnSave": true,
+  "references": [
+    { "path": "./packages/ava" },
+    { "path": "./packages/avakube" },
+    { "path": "./packages/avacontainer" }
+  ],
+  "exclude": ["packages/**/*.test.ts", "packages/**/dist/**"],
   "compilerOptions": {
-    "target": "es6", // Compatible with older browsers
-    "lib": ["ESNext"],
-    // "module": "commonjs", // Compatible with both Node.js and browser
-    "moduleResolution": "node", // Tell tsc to look in node_modules for modules
     "sourceMap": true, // Creates *.js.map files
-    "strict": true, // Strict types, eg. prohibits `var x=0; x=null`
     "alwaysStrict": true, // Enable JavaScript's "use strict" mode
     "types": ["node"],
-    "outDir": "dist",
-    "sourceRoot": ".",
-    "declaration": false,
+    "declaration": true,
+    "declarationMap": true,
     "noImplicitAny": false,
     "strictNullChecks": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
+    /* Basic Options */
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["ESNext"],
+    "outDir": "dist",
+
+    /* Strict Type-Checking Options */
+    "strict": true,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
     "esModuleInterop": true,
-    "typeRoots": [
-      "./node_modules/@types",
-      "./kube/types.d.ts",
-      "./src/global.d.ts"
-    ],
-    "jsx": "react",
-    "baseUrl": ".",
-    "paths": {
-      "@cli": ["src/cli.tsx"],
-      "@lib/*": ["src/lib/*"]
-    }
+
+    /* Advanced Options */
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
   }
 }

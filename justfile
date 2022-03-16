@@ -1,32 +1,24 @@
 set dotenv-load
 
-compile +ARGS='': clean-dist
+compile +ARGS='':
   yarn tsc -p . {{ARGS}}
 
-clean-dist:
-  rm -rf dist/
-
-gen:
-  #!/bin/bash
-  set -ex
-  rm -rf generated
-  jk generate -v -i . -o dist/generated dist/kube/index.js
-
-docker-compose-build:
+ava-build:
   #!/bin/bash -ex
-  docker-compose -f ./docker-compose.yml build
+  cd ./packages/ava && yarn build
 
-docker-compose-up:
+ava-dev:
   #!/bin/bash -ex
-  docker-compose -f ./docker-compose.yml up
+  cd ./packages/ava && yarn dev
 
-dev:
+container-build:
   #!/bin/bash -ex
-  yarn dev
+  cd ./packages/container && just docker-compose-build
 
-build: compile gen
+container-up:
+  #!/bin/bash -ex
+  cd ./packages/container && just docker-compose-up
 
-to-stdout dir: compile
-  #!/bin/bash
-  set -ex
-  jk generate -v -i . --stdout dist/kube/index.js
+kube-build:
+  #!/bin/bash -ex
+  cd ./packages/kube && just build

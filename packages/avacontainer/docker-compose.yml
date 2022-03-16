@@ -1,0 +1,13 @@
+version: '3'
+
+volumes:
+  ipcs:
+
+services:
+  ava-node:
+    build:
+      context: './ava-node'
+    ports:
+      - "9650:9650"
+    volumes:
+      - ipcs:/tmp
