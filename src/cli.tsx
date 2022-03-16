@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env node
 import yargs, { Arguments } from "yargs";
 import { hideBin } from "yargs/helpers";
 import fs from "fs";

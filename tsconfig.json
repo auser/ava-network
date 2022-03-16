@@ -1,5 +1,4 @@
 {
-  "include": ["src/**/*.ts", "src/**/*.tsx", "kube/**/*.ts"],
   "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts"],
   "compileOnSave": true,
   "compilerOptions": {

@@ -21,6 +21,7 @@ docker-compose-up:
   docker-compose -f ./docker-compose.yml up
 
 dev:
+  #!/bin/bash -ex
   yarn dev
 
 build: compile gen

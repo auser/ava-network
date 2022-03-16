@@ -2,9 +2,9 @@
   "name": "ava",
   "version": "1.0.0",
   "type": "commonjs",
-  "main": "dist/src/cli.js",
+  "main": "./src/cli.js",
   "bin": {
-    "ava": "dist/src/cli.js"
+    "ava": "bin/cli"
   },
   "scripts": {
     "build": "tsc -p .",
