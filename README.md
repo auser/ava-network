@@ -41,22 +41,22 @@ yarn build
 Now you can use the CLI. To see all the options available, use the `--help` flag:
 
 ```bash
-./dist/src/cli.js --help
+./bin/ava --help
 ```
 
 To issue any commands that require a token (if `api-auth-required` is enabled), you must first fetch a token. A token can be fetched using the cli:
 
 ```bash
-export AVA_TOKEN=`./build/src/cli.js auth newToken --password "Please-change-me-to-1234\!" --quiet`
+export AVA_TOKEN=`./bin/ava auth newToken --password "Please-change-me-to-1234" --quiet`
 ```
 
 If you'd prefer not to set an environment variable, it can be passed in using the `--token` flag:
 
 ```bash
-./dist/src/cli.js auth newToken --password "Please-change-me-to-1234\!"
+./bin/ava auth newToken --password "Please-change-me-to-1234\!"
 "JWT_TOKEN_ISSUED_BY_AVALANCHE"
 ## Use the token
-./dist/src/cli.js user
+./bin/ava user list
 ```
 
 ## Justfile
