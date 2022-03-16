@@ -1,9 +1,4 @@
 {
-  "references": [
-    { "path": "./packages/ava" },
-    { "path": "./packages/avakube" },
-    { "path": "./packages/avacontainer" }
-  ],
   "exclude": ["packages/**/*.test.ts", "packages/**/dist/**"],
   "compilerOptions": {
     "sourceMap": true, // Creates *.js.map files
@@ -17,7 +12,6 @@
     "allowSyntheticDefaultImports": true,
     /* Basic Options */
     "target": "es5",
-    "module": "commonjs",
     "lib": ["ESNext"],
     "outDir": "dist",
 

@@ -1,10 +1,9 @@
 {
   "extends": "../../tsconfig",
-  "include": ["src"],
+  "include": ["src/**/*"],
   "compilerOptions": {
-    "composite": true,
     "module": "es6",
     "typeRoots": ["./node_modules/@types", "./src/types.d.ts"],
-    "outDir": "dist"
+    "outDir": "./dist"
   }
 }

@@ -1,14 +1,8 @@
 {
   "extends": "../../tsconfig",
-  "include": ["src"],
+  "include": ["src/**/*"],
   "compilerOptions": {
-    "composite": true,
     "typeRoots": ["./node_modules/@types", "./src/global.d.ts"],
-    "jsx": "react",
-    "baseUrl": ".",
-    "paths": {
-      "@cli": ["src/cli.tsx"],
-      "@lib/*": ["src/lib/*"]
-    }
+    "outDir": "./dist"
   }
 }

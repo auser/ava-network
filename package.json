@@ -10,6 +10,7 @@
   },
   "scripts": {
     "test": "yarn workspaces run test",
+    "every": "yarn workspaces foreach run",
     "ava": "yarn workspace @auser/ava",
     "container": "yarn workspace @auser/container",
     "kube": "yarn workspace @auser/avakube"

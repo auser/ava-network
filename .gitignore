@@ -1,5 +1,4 @@
 node_modules
 docker/node/keys/*
-build/
 dist
 .yarn

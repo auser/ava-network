@@ -1,13 +1,13 @@
 {
   "extends": "../../tsconfig",
+  "include": ["./src/**/*"],
   "compilerOptions": {
     "declaration": true,
     "declarationMap": true,
-    "composite": true,
-    "outDir": "dist",
     "typeRoots": ["./node_modules/@types", "./src/global.d.ts"],
     "jsx": "react",
-    "baseUrl": ".",
+    "outDir": "./dist",
+    "baseUrl": "./",
     "paths": {
       "@cli": ["src/cli.tsx"],
       "@lib/*": ["src/lib/*"]

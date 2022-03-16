@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf generated/ dist/",
-    "gen": "jk generate -v -i . -o generated dist/index.js",
+    "gen": "jk generate -v -i . -o generated dist/src/index.js",
     "compile": "tsc -p .",
     "build": "npm run clean && npm run compile && npm run gen"
   },

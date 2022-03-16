@@ -8,7 +8,8 @@
   "bin": "bin/cli",
   "scripts": {
     "build": "tsc -p .",
-    "dev": "tsc -p . -w"
+    "dev": "tsc -p . -w",
+    "clean": "rm -rf ./dist"
   },
   "license": "MIT",
   "devDependencies": {
