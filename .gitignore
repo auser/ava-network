@@ -5,6 +5,8 @@ dist
 lerna-debug.log
 npm-debug.log
 
+generated
+
 .yarn/*
 !.yarn/patches
 !.yarn/releases

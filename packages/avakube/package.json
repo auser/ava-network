@@ -10,8 +10,9 @@
   },
   "dependencies": {
     "dotenv": "^16.0.0",
+    "fs-extra": "^10.0.1",
+    "js-yaml": "^4.1.0",
     "lodash": "^4.17.21",
-    "yaml": "^1.10.2",
     "yargs": "^17.3.1"
   },
   "devDependencies": {
