@@ -5,18 +5,18 @@
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf generated/ dist/",
-    "gen": "jk generate -v -i . -o generated dist/index.js",
-    "compile": "tsc -p .",
-    "build": "npm run clean && npm run compile && npm run gen"
+    "build": "tsc -p .",
+    "dev": "tsc -p . -w"
   },
   "dependencies": {
-    "@dpu/jkcfg-k8s": "^0.5.4",
-    "@jkcfg/kubernetes": "^0.6.2",
-    "@jkcfg/std": "^0.4.0",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "lodash": "^4.17.21",
+    "yaml": "^1.10.2",
+    "yargs": "^17.3.1"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
+    "@types/lodash": "^4.14.180",
     "typescript": "^4.6.2"
   }
 }

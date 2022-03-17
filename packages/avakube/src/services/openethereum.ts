@@ -1,8 +1,6 @@
-import * as k8s from "@jkcfg/kubernetes/api";
-import { finalize } from "@dpu/jkcfg-k8s/util";
-import { appNameSelector } from "@dpu/jkcfg-k8s/labels";
-import { IFileConfigMap, readConfigFile, IMapping } from "../utils";
-// import { Deployment } from '@dpu/jkcfg-k8s/deployment';
+import { appNameSelector, finalize } from "../lib";
+import { IFileConfigMap, readConfigFile, IMapping, rootDir } from "../lib";
+import { ConfigMap as K8SConfigMap } from "../lib";
 
 const ConfigMap = async (service: any, { name, files }: IFileConfigMap) => {
   const data: IMapping = await files.reduce(
@@ -16,7 +14,7 @@ const ConfigMap = async (service: any, { name, files }: IFileConfigMap) => {
     Promise.resolve({})
   );
 
-  return new k8s.core.v1.ConfigMap(name, {
+  return K8SConfigMap(name, {
     metadata: {
       namespace: service.namespace,
       labels: {

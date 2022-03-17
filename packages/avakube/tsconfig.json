@@ -3,7 +3,7 @@
   "exclude": ["dist", "node_modules"],
   "include": ["src/**/*"],
   "compilerOptions": {
-    "module": "es6",
+    "module": "commonjs",
     "typeRoots": ["./node_modules/@types", "./src/types.d.ts"],
     "outDir": "./dist",
     "baseUrl": ".",
