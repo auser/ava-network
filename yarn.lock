@@ -17,6 +17,7 @@ __metadata:
     "@types/yargs": ^17.0.9
     axios: ^0.26.1
     chalk: 4.1.2
+    console-table-printer: ^2.10.0
     debug: ^4.3.3
     dotenv: ^16.0.0
     secure-random-password: ^0.2.3
@@ -269,6 +270,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"console-table-printer@npm:^2.10.0":
+  version: 2.10.0
+  resolution: "console-table-printer@npm:2.10.0"
+  dependencies:
+    simple-wcswidth: ^1.0.1
+  checksum: 10c4f13d5868517b173f82c1ad9d7e41fb62b6d94184acc514053de8c2cc70af09aa0759ed06b219ad5a34d0e95740dfbd7816ffaad383807848c5988ed1e3a8
+  languageName: node
+  linkType: hard
+
 "create-require@npm:^1.1.0":
   version: 1.1.1
   resolution: "create-require@npm:1.1.1"
@@ -446,6 +456,13 @@ __metadata:
   dependencies:
     node-forge: ^1.2.0
   checksum: 43fca39a5aded2a8e97c1756af74c049a9dde12d47d302820f7d507d25c2ad7da4b04bc439a36620d63b4c0149bcf34ae7a729f978bf3b1bf48859c36ae34cee
+  languageName: node
+  linkType: hard
+
+"simple-wcswidth@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "simple-wcswidth@npm:1.0.1"
+  checksum: dc5bf4cb131d9c386825d1355add2b1ecc408b37dc2c2334edd7a1a4c9f527e6b594dedcdbf6d949bce2740c3a332e39af1183072a2d068e40d9e9146067a37f
   languageName: node
   linkType: hard
 

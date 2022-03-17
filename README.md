@@ -13,13 +13,13 @@ You can customize your avalanche config by editing the `docker/node/avalanche-co
 Once you're satisfied, build your docker compose nodes using the command:
 
 ```bash
-docker-compose -f docker-compose.yml build
+just container-build
 ```
 
 Launch the network by running:
 
 ```bash
-docker-compose -f docker-compose.yml up
+just container-up
 ```
 
 In order to use the CLI, you must build it using `yarn` or `npm`. Make sure you have all of the dependencies with `install`:

@@ -1,5 +1,6 @@
 import { Argv } from "yargs";
 import { req } from "../../lib/req";
+import { printTable } from "../../lib/console";
 
 export const command = "list [args]";
 
@@ -18,10 +19,17 @@ export async function handler(args: any) {
   if (data.users) {
     const { users } = data;
     if (users.length > 0) {
-      const userList = users
-        .reduce((acc: string[], username: string) => acc.concat(username), [])
-        .join("\n");
-      console.log(`Users: ${userList}`);
+      const userList = users.reduce(
+        (
+          acc: { id: number; username: string }[],
+          username: string,
+          id: number
+        ) => acc.concat({ id, username }),
+        []
+      );
+
+      console.log(`Users:`);
+      printTable(userList);
     } else {
       console.log(`No users`);
     }
