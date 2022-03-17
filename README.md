@@ -67,6 +67,30 @@ This project also uses [justfile](https://github.com/casey/just) as a convenienc
 
 While developing locally a docker instance is launched and `axios` issues local commands (in lieu of the `curl` interface) to the instance. All of these options can be configured using the cli, but it all defaults to a local instance.
 
+## Contributing
+
+`ava` is written in TypeScript as a monorepo. Single commands can be executed per-package using `yarn` workspaces.
+
+Running the local container to build CLI options:
+
+```bash
+just container-build && just container-up
+```
+
+From there, in another terminal window you can develop the `ava` cli command while building it in development:
+
+```bash
+(cd packages/ava && yarn dev)
+```
+
+And finally in another terminal window, execute ava using the `bin/ava` binary:
+
+```bash
+# If you don't have AVA_TOKEN defined
+export AVA_TOKEN=`./bin/ava auth newToken --password "Please-change-me-to-1234" --quiet`
+./bin/ava user list
+```
+
 ## TODO:
 
 - [ ] Complete `generateConfig` command to enable flexible configuration by CLI
@@ -74,4 +98,4 @@ While developing locally a docker instance is launched and `axios` issues local 
 - [ ] Complete P chain CLI commands
 - [ ] Add X chain CLI commands
 - [ ] Investigate auto-generating options from source
-- [ ] Extend to be able to be launched using Kubernetes
+- [x] Extend to be able to be launched using Kubernetes
