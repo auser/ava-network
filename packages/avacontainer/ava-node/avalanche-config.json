@@ -1,7 +1,7 @@
 {
   "log-level": "info",
   "api-admin-enabled": true,
-  "api-auth-required": true,
+  "api-auth-required": false,
   "api-auth-password": "Please-change-me-to-1234",
   "api-health-enabled": true,
   "api-info-enabled": true,

@@ -1,6 +1,6 @@
 {
-  "snowman-api-enabled": false,
-  "coreth-admin-api-enabled": false,
+  "snowman-api-enabled": true,
+  "coreth-admin-api-enabled": true,
   "coreth-admin-api-dir": "",
   "eth-apis": [
     "public-eth",
