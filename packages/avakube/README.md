@@ -1,3 +1,3 @@
 ## AvaKube
 
-Generator of Kubernetes files using
+Generator of Kubernetes files using TypeScript
