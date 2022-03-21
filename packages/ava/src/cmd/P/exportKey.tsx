@@ -3,9 +3,9 @@ import chalk from "chalk";
 import { req } from "../../lib/req";
 import { printTable } from "../../lib/console";
 
-export const command = "getBalance [args]";
+export const command = "exportKey [args]";
 
-export const desc = "Get the balance of an address";
+export const desc = "Export the private key";
 
 export const builder = (yargs: Argv) =>
   yargs.options({
@@ -15,28 +15,37 @@ export const builder = (yargs: Argv) =>
       required: true,
       type: "string",
     },
+    username: {
+      description: "Username",
+      type: "string",
+      alias: "u",
+      required: true,
+    },
+    password: {
+      description: "Password",
+      type: "string",
+      alias: "p",
+      required: true,
+    },
   });
 
 export async function handler(args: any) {
-  const { address } = args;
+  const { username, password, address } = args;
   const requestOptions = {
     address,
+    username,
+    password,
   };
   const data = await req(
-    "/ext/bc/P",
-    "platform.getBalance",
+    "/ext/P",
+    "platform.exportKey",
     requestOptions,
     args.requestOptions
   );
 
-  if (data.balance) {
-    console.log(`Details:`);
+  if (data.privateKey) {
     const color = chalk.white;
-    console.log(`${color("Balance")}: ${data.balance}`);
-    console.log(`${color("Unlocked")}: ${data.unlocked}`);
-    console.log(`${color("lockedStakeable")}: ${data.lockedStakeable}`);
-    console.log(`${color("lockedNotStakeable")}: ${data.lockedNotStakeable}`);
-    printTable(data.utxoIDs);
+    console.log(`Private Key: ${data.privateKey}`);
   } else {
     console.log(data);
   }

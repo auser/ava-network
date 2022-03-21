@@ -12,12 +12,13 @@ export const builder = (yargs: Argv) =>
       alias: "a",
       description: "Address to get balance",
       required: true,
+      type: "string",
     },
   });
 
 export async function handler(args: any) {
   const { address } = args;
-  const requestOptions = [`0x${address.toString(16)}`, "latest"];
+  const requestOptions = [address, "latest"];
   const data = await req(
     "/ext/bc/C/rpc",
     "eth_getBalance",
@@ -27,6 +28,6 @@ export async function handler(args: any) {
 
   if (data) {
     const color = chalk.white;
-    console.log(`Balance: ${data}`);
+    console.log(`Balance: ${Number(data)}`);
   }
 }

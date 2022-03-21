@@ -15,8 +15,8 @@
   "log-display-highlight": "auto",
   "staking-port": 9651,
   "staking-enabled": false,
-  "staking-tls-cert-file": "/etc/ava/staking.crt",
-  "staking-tls-key-file": "/etc/ava/staking.key",
+  "staking-tls-cert-file": "/etc/ava/certs/keys1/staker.crt",
+  "staking-tls-key-file": "/etc/ava/certs/keys1/staker.key",
   "snow-sample-size": 1,
   "snow-quorum-size": 1,
   "signature-verification-enabled": false,
@@ -29,6 +29,7 @@
     "web3",
     "keystore",
     "auth",
+    "admin",
     "internal-public-eth",
     "internal-public-blockchain",
     "internal-public-transaction-pool"

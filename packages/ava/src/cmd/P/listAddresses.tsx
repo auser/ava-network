@@ -38,7 +38,6 @@ export async function handler(args: any) {
 
   if (data.addresses) {
     console.log(`Addresses:`);
-    data.addresses.forEach((a: string) => console.log(`  ${a}`);
-    );
+    data.addresses.forEach((a: string) => console.log(`  ${a}`));
   }
 }

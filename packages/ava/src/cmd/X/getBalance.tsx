@@ -13,6 +13,7 @@ export const builder = (yargs: Argv) =>
       alias: "a",
       description: "Address to get balance",
       required: true,
+      type: "string",
     },
     assetID: {
       description: "Asset ID",

@@ -50,7 +50,13 @@ const args = require("yargs")
       default: JSON.stringify(defaultConfig),
     },
     outDir: {
-      default: path.join(rootDir, "docker", "node"),
+      default: path.join(
+        rootDir,
+        "packages",
+        "avacontainer",
+        "ava-node",
+        "certs"
+      ),
       help: `Directory to save certs`,
     },
   })

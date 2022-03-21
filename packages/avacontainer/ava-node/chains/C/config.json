@@ -7,6 +7,8 @@
     "public-eth-filter",
     "net",
     "web3",
+    "private-admin",
+    "private-debug",
     "internal-public-eth",
     "internal-public-blockchain",
     "internal-public-transaction-pool",
@@ -36,5 +38,5 @@
   "remote-tx-gossip-only-enabled": false,
   "tx-regossip-frequency": 60000000000,
   "tx-regossip-max-size": 15,
-  "log-level": "debug"
+  "log-level": "info"
 }

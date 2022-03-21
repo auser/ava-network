@@ -6,8 +6,7 @@ RUN apt-get update -yq && \
 
 COPY ./avalanche-config.json /etc/ava/ava.json
 # COPY ./genesis.json /etc/ava/genesis.json
-COPY ./keys/staking.crt /etc/ava/staking.crt
-COPY ./keys/staking.key /etc/ava/staking.key
+COPY ./certs /etc/ava/certs/
 COPY ./chains /etc/ava/chains/
 
 COPY ./entrypoint.sh /entrypoint.sh

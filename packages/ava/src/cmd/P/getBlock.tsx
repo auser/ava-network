@@ -8,6 +8,7 @@ export const desc = "Get a block";
 export const builder = (yargs: Argv) =>
   yargs.options({
     blockID: {
+      alias: "b",
       description: "Block ID",
       required: true,
     },
