@@ -1,13 +1,13 @@
 import { Argv } from "yargs";
 
-export const command = "p <cmd> [args]";
+export const command = "c <cmd> [args]";
 
-export const desc = "p commands";
+export const desc = "c commands";
 
 export const builder = (yargs: Argv) =>
   yargs
-    .commandDir("./P")
-    .usage("Usage: p <cmd> [args")
+    .commandDir("./C")
+    .usage("Usage: c <cmd> [args")
     .help("help")
     .alias("help", "h")
     .demandCommand()
