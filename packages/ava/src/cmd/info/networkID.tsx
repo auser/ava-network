@@ -8,15 +8,10 @@ export const desc = "Get the network id";
 export const builder = (yargs: Argv) => yargs.options({});
 
 export async function handler(args: any) {
-  const data = await req(
-    "/ext/info",
-    "info.getNetworkID",
-    {
-      password: args.password,
-      endpoints: args.endpoints,
-    },
-    args.requestOptions
-  );
+  const data = await req("/ext/info", "info.getNetworkID", args, [
+    "password",
+    "endpoints",
+  ]);
 
   if (data.networkID) {
     console.log(`Network ID: ${data.networkID}`);

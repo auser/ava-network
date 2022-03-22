@@ -21,16 +21,11 @@ export const builder = (yargs: Argv) =>
   });
 
 export async function handler(args: any) {
-  const username = args.username;
-  const password = args.password;
+  const data = await req("/ext/P", "platform.createAddress", args, [
+    "username",
+    "password",
+  ]);
 
-  const opts = { username, password };
-  const data = await req(
-    "/ext/P",
-    "platform.createAddress",
-    opts,
-    args.requestOptions
-  );
   if (data.address) {
     console.log(`Address:\n${chalk.blue(data.address)}`);
   } else {

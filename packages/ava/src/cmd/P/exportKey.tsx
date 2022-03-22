@@ -36,12 +36,11 @@ export async function handler(args: any) {
     username,
     password,
   };
-  const data = await req(
-    "/ext/P",
-    "platform.exportKey",
-    requestOptions,
-    args.requestOptions
-  );
+  const data = await req("/ext/P", "platform.exportKey", args, [
+    "address",
+    "username",
+    "password",
+  ]);
 
   if (data.privateKey) {
     const color = chalk.white;

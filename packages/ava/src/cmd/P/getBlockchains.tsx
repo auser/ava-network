@@ -8,12 +8,7 @@ export const desc = "Get blockchains";
 export const builder = (yargs: Argv) => yargs.options({});
 
 export async function handler(args: any) {
-  const data = await req(
-    "/ext/P",
-    "platform.getBlockchains",
-    {},
-    args.requestOptions
-  );
+  const data = await req("/ext/P", "platform.getBlockchains", args);
 
   if (data.blockchains) {
     console.log(`Blockchains`);

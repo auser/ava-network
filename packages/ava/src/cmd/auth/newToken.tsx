@@ -24,15 +24,10 @@ export const builder = (yargs: Argv) =>
   });
 
 export async function handler(args: any) {
-  const data = await req(
-    "/ext/auth",
-    "auth.newToken",
-    {
-      password: args.password,
-      endpoints: args.endpoints,
-    },
-    args.requestOptions
-  );
+  const data = await req("/ext/auth", "auth.newToken", args, [
+    "password",
+    "endpoints",
+  ]);
 
   if (data.token) {
     if (args.quiet) {

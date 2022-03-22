@@ -18,13 +18,11 @@ export const builder = (yargs: Argv) =>
 
 export async function handler(args: any) {
   const { address } = args;
-  const requestOptions = [address, "latest"];
-  const data = await req(
-    "/ext/bc/C/rpc",
-    "eth_getBalance",
-    requestOptions,
-    args.requestOptions
-  );
+  const requestParams = [address, "latest"];
+  const data = await req("/ext/bc/C/rpc", "eth_getBalance", {
+    ...args,
+    requestParams,
+  });
 
   if (data) {
     const color = chalk.white;

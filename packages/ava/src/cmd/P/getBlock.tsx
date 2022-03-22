@@ -20,14 +20,9 @@ export const builder = (yargs: Argv) =>
   });
 
 export async function handler(args: any) {
-  const data = await req(
-    "/ext/P",
-    "platform.getBlock",
-    {
-      blockID: args.blockID,
-      encoding: args.encoding,
-    },
-    args.requestOptions
-  );
+  const data = await req("/ext/P", "platform.getBlock", args, [
+    "blockID",
+    "encoding",
+  ]);
   console.log("resp ->", data);
 }

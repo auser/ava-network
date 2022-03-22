@@ -23,14 +23,27 @@ const defaultOptions = {
   token: "JWT",
 };
 
-export const req = async (
+const prepareArgs = async (
   rawPath: string,
   method: string,
-  params: IParams = defaultParams,
-  options: IReqOptions = defaultOptions
+  options: any,
+  args?: any[]
 ) => {
-  const { host, port, protocol, debug } = options;
+  const { host, port, protocol, debug, requestParams } = options;
+  const { requestOptions } = options;
   const baseURL = `${protocol}://${host}:${port}`;
+
+  const params = requestParams
+    ? requestParams
+    : Object.keys(args!).length === 0
+    ? []
+    : [
+        (args || []).reduce((acc: any, key: string) => {
+          const value = options[key];
+          if (!value) return acc;
+          return { ...acc, [key]: value };
+        }, {}),
+      ];
 
   const data = { jsonrpc: "2.0", id: 1, method, params };
   const headers: any = {
@@ -53,6 +66,21 @@ ${JSON.stringify(data, null, 2)}
 `
     );
   }
+  return { url, baseURL, headers, data };
+};
+
+export const req = async (
+  rawPath: string,
+  method: string,
+  args: any,
+  params: any[] = []
+) => {
+  const { url, baseURL, headers, data } = await prepareArgs(
+    rawPath,
+    method,
+    args,
+    params
+  );
 
   const axiosOptions: any = {
     method: "POST",
@@ -63,12 +91,6 @@ ${JSON.stringify(data, null, 2)}
     data,
   };
 
-  // if (params.data) {
-  //   axiosOptions["data"] = params.data;
-  // }
-  // if (params.body) {
-  //   axiosOptions["body"] = params.body;
-  // }
   try {
     const resp = await axios(axiosOptions);
     if (resp && resp.data) {
@@ -81,6 +103,8 @@ ${JSON.stringify(data, null, 2)}
     if (e.response && e.response.data) {
       console.log(`Axios error`, e.code, e.response.data);
       return e.response.data;
+    } else if (e.error) {
+      return e.error;
     } else {
       console.log(e);
 

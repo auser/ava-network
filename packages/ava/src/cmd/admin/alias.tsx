@@ -18,15 +18,10 @@ export const builder = (yargs: Argv) =>
   });
 
 export async function handler(args: any) {
-  const data = await req(
-    "/ext/admin",
-    "admin.alias",
-    {
-      alias: args.alias,
-      endpoint: args.endpoint,
-    },
-    args.requestOptions
-  );
+  const data = await req("/ext/admin", "admin.alias", args, [
+    "alias",
+    "endpoint",
+  ]);
 
   if (data.result) {
     console.log(`Result: ${data.result}`);

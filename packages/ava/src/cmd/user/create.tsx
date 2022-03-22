@@ -18,6 +18,7 @@ export const builder = (yargs: Argv) =>
     password: {
       alias: "p",
       description: "Password for the key",
+      default: generatePassword(),
     },
     g: {
       alias: "generate",
@@ -38,23 +39,13 @@ const generatePassword = () => {
 };
 
 export async function handler(args: any) {
-  const username = args.username;
-  const password = args.password || generatePassword();
-
-  const opts = { username, password };
-  const data = await req(
-    `/ext/keystore`,
-    "keystore.createUser",
-    opts,
-    args.requestOptions
-  );
+  const data = await req(`/ext/keystore`, "keystore.createUser", args, [
+    "username",
+    "password",
+  ]);
   if (data.success) {
-    console.log(`Users ${username} successfully added`);
-    if (!args.password) {
-      console.log(
-        `Password generated on your behalf is: ${chalk.blue(password)}`
-      );
-    }
+    console.log(`Users ${args.username} successfully added`);
+    console.log(`Password is: ${chalk.blue(args.password)}`);
   } else {
     console.log(data);
 

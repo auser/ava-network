@@ -30,18 +30,11 @@ export const builder = (yargs: Argv) =>
   });
 
 export async function handler(args: any) {
-  const { username, password, address } = args;
-  const requestOptions = {
-    address,
-    username,
-    password,
-  };
-  const data = await req(
-    "/ext/bc/C/avax",
-    "avax.exportKey",
-    requestOptions,
-    args.requestOptions
-  );
+  const data = await req("/ext/bc/C/avax", "avax.exportKey", args, [
+    "address",
+    "username",
+    "password",
+  ]);
 
   if (data.privateKey) {
     const color = chalk.white;

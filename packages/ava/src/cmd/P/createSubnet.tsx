@@ -42,26 +42,14 @@ export const builder = (yargs: Argv) =>
   });
 
 export async function handler(args: any) {
-  const { threshold, controlKeys, username, password } = args;
-
-  const requestOptions: any = {
-    threshold,
-    controlKeys,
-    username,
-    password,
-  };
-  if (args.from) {
-    requestOptions["from"] = args.from;
-  }
-  if (args.changeAddr) {
-    requestOptions["changeAddr"] = args.changeAddr;
-  }
-  const data = await req(
-    "/ext/P",
-    "platform.createSubnet",
-    requestOptions,
-    args.requestOptions
-  );
+  const data = await req("/ext/P", "platform.createSubnet", args, [
+    "threshold",
+    "controlKeys",
+    "username",
+    "password",
+    "from",
+    "changeAddr",
+  ]);
   if (data.address) {
     console.log(`Address: ${data.address}`);
   } else {

@@ -22,12 +22,7 @@ export async function handler(args: any) {
   const requestOptions = {
     address,
   };
-  const data = await req(
-    "/ext/bc/P",
-    "platform.getBalance",
-    requestOptions,
-    args.requestOptions
-  );
+  const data = await req("/ext/bc/P", "platform.getBalance", args, ["address"]);
 
   if (data.balance) {
     console.log(`Details:`);

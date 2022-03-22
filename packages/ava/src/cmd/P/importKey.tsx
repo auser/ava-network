@@ -27,18 +27,11 @@ export const builder = (yargs: Argv) =>
   });
 
 export async function handler(args: any) {
-  const { privateKey, username, password } = args;
-  const requestOptions = {
-    privateKey,
-    username,
-    password,
-  };
-  const data = await req(
-    "/ext/P",
-    "platform.importKey",
-    requestOptions,
-    args.requestOptions
-  );
+  const data = await req("/ext/P", "platform.importKey", args, [
+    "privateKey",
+    "username",
+    "password",
+  ]);
 
   if (data.address) {
     console.log(`Address: ${data.address}`);

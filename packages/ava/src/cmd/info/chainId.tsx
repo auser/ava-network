@@ -10,15 +10,9 @@ export const desc = "Get C-chain id";
 export const builder = (yargs: Argv) => yargs.options({});
 
 export async function handler(args: any) {
-  const data = await req(
-    "/ext/bc/C/rpc",
-    "eth_chainId",
-    [],
-    args.requestOptions
-  );
+  const data = await req("/ext/bc/C/rpc", "eth_chainId", args);
 
   const color = chalk.white;
-  console.log(data.toString(10));
 
   console.log(`Chain ID: (${data})`);
 }

@@ -22,14 +22,10 @@ export const builder = (yargs: Argv) =>
   });
 
 export async function handler(args: any) {
-  const { address, assetID } = args;
-  const requestOptions = { address, assetID };
-  const data = await req(
-    "/ext/bc/X",
-    "avm.getBalance",
-    requestOptions,
-    args.requestOptions
-  );
+  const data = await req("/ext/bc/X", "avm.getBalance", args, [
+    "address",
+    "assetID",
+  ]);
 
   if (data.balance) {
     const color = chalk.white;

@@ -29,12 +29,10 @@ export async function handler(args: any) {
     username,
     password,
   };
-  const data = await req(
-    "/ext/P",
-    "platform.listAddresses",
-    requestOptions,
-    args.requestOptions
-  );
+  const data = await req("/ext/P", "platform.listAddresses", args, [
+    "username",
+    "password",
+  ]);
 
   if (data.addresses) {
     console.log(`Addresses:`);

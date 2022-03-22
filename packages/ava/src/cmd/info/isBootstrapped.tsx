@@ -17,15 +17,7 @@ export const builder = (yargs: Argv) =>
   });
 
 export async function handler(args: any) {
-  const { chain } = args;
-  const data = await req(
-    "/ext/info",
-    "info.isBootstrapped",
-    {
-      chain,
-    },
-    args.requestOptions
-  );
+  const data = await req("/ext/info", "info.isBootstrapped", args, ["chain"]);
 
   if (data.isBootstrapped === true || data.isBootstrapped === false) {
     const color = data.isBootstrapped ? chalk.blueBright : chalk.redBright;

@@ -11,12 +11,7 @@ export const builder = (yargs: Argv) => yargs.options({});
 
 export async function handler(args: any) {
   const requestOptions = {};
-  const data = await req(
-    "/ext/info",
-    "info.peers",
-    requestOptions,
-    args.requestOptions
-  );
+  const data = await req("/ext/info", "info.peers", args);
 
   if (data.peers) {
     const color = chalk.white;
