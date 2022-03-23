@@ -9,7 +9,6 @@ export const desc = "List the users";
 export const builder = (yargs: Argv) => yargs.options({});
 
 export async function handler(args: any) {
-  const opts = {};
   const data = await req(`/ext/keystore`, "keystore.listUsers", args);
 
   if (data.users) {

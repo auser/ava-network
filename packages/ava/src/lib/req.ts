@@ -1,4 +1,5 @@
 import axios from "axios";
+import Web3 from "web3";
 
 type IParams = { [key: string]: any };
 
@@ -67,6 +68,18 @@ ${JSON.stringify(data, null, 2)}
     );
   }
   return { url, baseURL, headers, data };
+};
+
+export const getWeb3 = async (rawPath: string, options: any) => {
+  const { host, port, protocol, debug } = options;
+  const { requestOptions } = options;
+  const baseURL = `${protocol}://${host}:${port}${rawPath}`;
+
+  if (debug) {
+    console.log(`Using HttpProvider: ${baseURL}`);
+  }
+  const web3 = new Web3(new Web3.providers.HttpProvider(baseURL));
+  return web3;
 };
 
 export const req = async (

@@ -11,6 +11,7 @@ export const builder = (yargs: Argv) =>
       alias: "k",
       description: "Private key to import",
       default: "PrivateKey-ewoqjP7PxY4yr3iLTpLisriqt94hdyDFNgchSxGGztUrTXtNN", // prefunded X-chain private key
+      type: "string",
     },
     username: {
       description: "The user that pays the transaction fee",
@@ -32,6 +33,8 @@ export async function handler(args: any) {
     "username",
     "password",
   ]);
+
+  console.log(data);
 
   if (data.address) {
     console.log(`Address: ${data.address}`);

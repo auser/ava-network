@@ -28,9 +28,11 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
+    "bignumber.js": "^9.0.2",
     "chalk": "4.1.2",
     "console-table-printer": "^2.10.0",
     "dotenv": "^16.0.0",
-    "secure-random-password": "^0.2.3"
+    "secure-random-password": "^0.2.3",
+    "web3": "^1.7.1"
   }
 }

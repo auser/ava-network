@@ -2,6 +2,7 @@
   "snowman-api-enabled": true,
   "coreth-admin-api-enabled": true,
   "coreth-admin-api-dir": "",
+  "network-health-min-conn-peers": 0,
   "eth-apis": [
     "public-eth",
     "public-eth-filter",
