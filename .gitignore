@@ -14,3 +14,5 @@ generated
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+**/.env

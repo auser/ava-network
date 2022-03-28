@@ -39,6 +39,7 @@ export const builder = (yargs: Argv) =>
     nonce: {
       description: "Integer of a nonce",
       type: "string",
+      default: "0x01",
     },
   });
 
@@ -62,7 +63,12 @@ export async function handler(args: any) {
   const tx = await web3.eth.signTransaction(reqArgs);
 
   const color = chalk.white;
-  console.log("tx", tx);
+  if (args.debug) {
+    console.log("tx", tx);
+  }
+  if (tx.raw) {
+    console.log(tx.raw);
+  }
 
   // const resp = await req("/ext/bc/C/rpc", "eth_signTransaction", args, [
   //   "nonce",

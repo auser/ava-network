@@ -27,6 +27,7 @@ export const builder = (yargs: Argv) =>
 
 export async function handler(args: any) {
   const requestParams = [args.account, args.passphrase, args.duration];
+
   const data = await req("/ext/bc/C/rpc", "personal_unlockAccount", {
     ...args,
     requestParams,

@@ -3,22 +3,23 @@ import chalk from "chalk";
 import { req } from "../../lib/req";
 import { printTable } from "../../lib/console";
 
-export const command = "sendTransaction [args]";
+export const command = "getTransaction [args]";
 
-export const desc = "Send a transaction";
+export const desc = "Get a transaction by hash";
 
 export const builder = (yargs: Argv) =>
   yargs.options({
-    data: {
-      description: "Data to send with transaction",
+    txhash: {
+      alias: "t",
+      description: "Transaction hash",
       type: "string",
       required: true,
     },
   });
 
 export async function handler(args: any) {
-  const requestParams = [args.data];
-  const resp = await req("/ext/bc/C/rpc", "eth_sendRawTransaction", {
+  const requestParams = [args.txhash];
+  const resp = await req("/ext/bc/C/rpc", "eth_getTransactionReceipt", {
     ...args,
     requestParams,
   });
