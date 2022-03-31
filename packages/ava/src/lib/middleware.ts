@@ -1,4 +1,4 @@
-export const normalizeRequestOptions = (argv: any) => {
+export const normalizeRequestOptions = (argv: any): any => {
   const requestOptions = {
     host: argv.host || "localhost",
     port: argv.port || 9650,
